@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import compoundInterest from './compoundInterest'
 export default {
   name: 'app',
   data () {
@@ -31,10 +32,11 @@ export default {
   },
   computed: {
     final () {
-      const P = this.principal
-      const r = this.interestRate
-      const t = this.timeYears
-      return P * Math.pow((1 + r), t)
+      return compoundInterest(
+        this.principal,
+        this.interestRate,
+        this.timeYears
+      )
     }
   }
 
